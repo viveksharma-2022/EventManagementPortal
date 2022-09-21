@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="cards-container">
+      <div class="cards-form">
+        <h1 class="alig">User SignUp</h1>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+              <div class="form-group">
+                  <label for="">User Email</label>
+                  <input type="text" name="Username" class="form-control" [(ngModel)]="usersignup.userEmail" formControlName="userName" required>
+                  <span class="text-danger" *ngIf="(loginData.userName.touched || submitted) && loginData.userName.errors?.required">
+                    UserName is required
+                 </span>
+                 <span class="text-danger" *ngIf="loginData.userName.touched && loginData.userName.errors?.email">
+                    Enter a valid email address
+                 </span>
+
+              </div>
+              <div class="form-group">
+                <label class="space" for=""><b>First Name</b></label>
+                <input type="text" onkeydown="return /[a-zA-Z]/i.test(event.key)" class="form-control" formControlName="Fname" name="firstName" [(ngModel)]="usersignup.firstName">
+                <span class="text-danger" *ngIf="(loginData.Fname.touched || submitted) && loginData.Fname.errors?.required">
+                  firstName is required
+               </span>
+            </div>
+            <div class="form-group">
+              <label class="space" for=""><b>Last Name</b></label>
+              <input type="text" onkeydown="return /[a-zA-Z]/i.test(event.key)" class="form-control" formControlName="Lname" name="lastName" [(ngModel)]="usersignup.lastName">
+              <span class="text-danger" *ngIf="(loginData.Lname.touched || submitted) && loginData.Lname.errors?.required">
+                LastName is required
+             </span>
+          </div>
+          <div class="form-group">
+            <label class="space" for=""><b>Date Of Birth</b></label>
+            <input type="date" max="2004-09-19" min="1900-01-01" formControlName="Dob" class="form-control" name="Dob" [(ngModel)]="usersignup.dob">
+            <span class="text-danger" *ngIf="(loginData.Dob.touched || submitted) && loginData.Dob.errors?.required">
+              Date Of birth is required
+           </span>
+        </div>
+              <div class="form-group">
+                  <label for="">Password</label>
+                  <input type="password" name="passWord" class="form-control" formControlName="passWord" [(ngModel)]="usersignup.password">
+                  <span class="text-danger" *ngIf="(loginData.passWord.touched || submitted) && loginData.passWord.errors?.required">
+                    Password is required
+                  </span>
+                  <span class="text-danger" *ngIf="(submitted && loginData.passWord.hasError('pattern')) || loginData.passWord.touched && loginData.passWord.errors?.invalidPassword">
+                    Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+                    letter and 1 number
+                  </span>
+
+              </div>
+              <div class="form-group">
+                <label for="userType">UserType</label>
+                <select
+                 class="form-control"
+                 name="userType"
+                 [(ngModel)]="usersignup.userType"
+                 formControlName="userType" required
+                 >
+                 <option value="Admin">Admin</option>
+                 <option value="User">Member</option>
+                </select>
+                <span class="text-danger" *ngIf="(loginData.userType.touched || submitted) && loginData.userType.errors?.required">
+                  UserType is required
+               </span>
+              </div>
+              <div class="form-group">
+                <button class="btn btn-primary btn-block form-control">Sign up</button>
+            </div>
+            <span class="colour">Already have an account?</span>
+            <br>
+            <div>
+              <button class="btn btn-primary form-control" href="/login" routerLink="/login">Login</button>
+          </div>
+          </form>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/e6e94d76-341b-4b31-9707-0f501f5d4233/AppServices/subscriptions/e6e94d76-341b-4b31-9707-0f501f5d4233/resourceGroups/EventManagementPortalApi/providers/Microsoft.Web/sites/EventPortal",
+    "appService.deploySubpath": "dist\\event-managementApp"
+}

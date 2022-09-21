@@ -1,0 +1,22 @@
+.mrt50{
+margin-top: 50px;
+padding-left: 100px;
+}
+.pad30{
+  padding-left: 100px;
+  margin-right: 15px;
+}
+.mart30{
+  margin-top: 30px;
+  padding-left: 65px;
+}
+.aligncenter{
+  text-align: center;
+
+}
+.bgcolour{
+  background-color: aliceblue;
+}
+.colours{
+  color: darkgreen;
+}

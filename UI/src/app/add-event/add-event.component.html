@@ -1,0 +1,48 @@
+<div class="container">
+  <h2 class="h2tag">Add New Event</h2>
+  <form #form="ngForm" (ngSubmit)="onSubmit()" style="margin-top: 50px">
+      <div class="form-group">
+          <label class="space" for=""><h5>Event Title</h5></label>
+          <input class="form-control" onkeydown="return /[a-zA-Z ]/i.test(event.key)" required type="text" [(ngModel)]="event.eventName" name="eventName" maxlength="50" #eventName="ngModel">
+          <div *ngIf="eventName.invalid && (eventName.dirty || eventName.touched)"
+          class="text-danger">
+
+  <div class="text-danger" *ngIf="eventName.errors?.['required']">
+    Event title is required.
+  </div>
+
+</div>
+      </div>
+      <div class="form-group">
+          <label class="space" for=""><h5>Description</h5></label>
+          <input class="form-control" onkeydown="return /[a-zA-Z ]/i.test(event.key)" type="text" required [(ngModel)]="event.description" name="description" maxlength="149" #description="ngModel">
+          <div *ngIf="description.invalid && (description.dirty || description.touched)"
+          class="text-danger">
+
+  <div class="text-danger" *ngIf="description.errors?.['required']">
+    Description is required.
+  </div>
+
+</div>
+      </div>
+      <div class="form-group">
+          <label class="space" for=""><h5>Event Date and Time</h5></label>
+          <input class="form-control" type="datetime-local" [(ngModel)]="event.eventDate" min="2022-09-21 00:00:00" [min]="" max="2022-10-05 00:00:00" name="eventDate" #eventDate="ngModel">
+          <div *ngIf="eventDate.invalid && (eventDate.dirty || eventDate.touched)"
+          class="text-danger">
+
+  <div class="text-danger" *ngIf="eventDate.errors?.['required']">
+    Date and Time is required.
+  </div>
+
+</div>
+      </div>
+      <div class="form-group">
+        <label class="space" for=""><h5>UserEmail</h5></label>
+        <input class="form-control" readonly required type="text" [(ngModel)]="event.userEmail" name="userEmail">
+    </div>
+      <div class="form-group" style="margin-top: 10px">
+          <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Add Event</button>
+      </div>
+  </form>
+</div>

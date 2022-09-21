@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "lYq0grbpcM1aGprYVU1shQkTkA94s7yWeHTkEflL2s8=",
+  "Source": "AdminApi",
+  "BasePath": "_content/AdminApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\cogdotnet1358\\source\\repos\\EventManagementPortal\\CommonDbLayer\\CommonDbLayer.csproj",
+      "Version": 2,
+      "Source": "CommonDbLayer",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Release;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Release;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

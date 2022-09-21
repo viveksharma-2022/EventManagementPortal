@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark col-md-12">
+  <a class="navbar-brand col-md-1 mrl20">Event Portal</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse col-md-12" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto col-md-9">
+      <li class="nav-item col-md-">
+        <a class="nav-link" (click)="checkloggedin()"  routerLinkActive="active">Events</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/registeredEvent" routerLinkActive="active">Registered Events</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="loggedin()">{{"Welcome "+ this.currentusername}}</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <a class="nav-link" *ngIf="!loggedin()" routerLink="/login" routerLinkActive="active">Login</a>
+      <a class="nav-link" *ngIf="!loggedin()" routerLink="/signup" routerLinkActive="active">Register</a>
+      <a class="nav-link" style="cursor:pointer" *ngIf="loggedin()" (click)="logout()">Logout</a>
+    </ul>
+  </div>
+</nav>
+<div class="container"><router-outlet></router-outlet></div>

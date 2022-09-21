@@ -1,0 +1,20 @@
+<h2 class="mrt50"><b>Active Events</b></h2>
+<div class="row mt-5">
+  <div class="col-md-4 mb-3 pad30" *ngFor="let events of event | paginate: { itemsPerPage: 4, currentPage: pages }">
+    <div class="card text-center bgcolour">
+      <div class="card-body">
+        <h3 class="card-title colours">{{events.eventName}}</h3>
+        <p class="card-text">{{events.description}}</p>
+        <button type="button" *ngIf="currentUserType!='Admin' && events.isRegistered!=true" (click)="RegisterEvent(events)" class="btn btn-primary">Register</button>
+        <button type="button" *ngIf="currentUserType!='Admin' && events.isRegistered==true" (click)="DeRegisterEvent(events)" class="btn btn-primary">DeRegister</button>
+      </div>
+      <div class="card-footer">
+        {{events.eventDate|date}},{{events.eventDate|date:'hh:mm a'}}
+      </div>
+    </div>
+  </div>
+  <div class="mart30">
+    <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+  </div>
+</div>
+

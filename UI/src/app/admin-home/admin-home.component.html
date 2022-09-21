@@ -1,0 +1,39 @@
+<div class="container">
+  <!-- <div class="cards-container"> -->
+    <div class="card-body widt">
+      <span class="marb10"
+        ><h2>Welcome {{ currentUser }}</h2></span
+      >
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="table-dark">
+            <tr>
+              <th>EventId</th>
+              <th>Event Title</th>
+              <th>Description</th>
+              <th>Event Date</th>
+              <th>Event Time</th>
+              <th>Edit</th>
+              <th>Delete Event</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let events of (event | filter: searchedKeyword | paginate: { itemsPerPage: 3, currentPage: pages })">
+              <td style="padding-top: 20px">{{ events.eventId }}</td>
+              <td style="padding-top: 20px">{{ events.eventName }}</td>
+              <td style="padding-top: 20px">{{ events.description }}</td>
+              <td style="padding-top: 20px">{{ events.eventDate | date }}</td>
+              <td style="padding-top: 20px">{{ events.eventDate | date:'hh:mm a'}}</td>
+              <td style="padding-top: 20px"><button type="button" class="btn btn-success" [routerLink]="['/updateEvent',events.eventId]">Update</button></td>
+              <td style="padding-top: 20px"><button *ngIf="events.registrationCount==0" type="button" href="" class="btn btn-danger" routerLink="/adminHome" (click)="deleteEvent(this.events.eventId)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="btn btn-primary" routerLink="/addEvent">Add Event</button>
+    </div>
+    <div class="aligncenter mart30">
+    <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+  </div>
+  </div>

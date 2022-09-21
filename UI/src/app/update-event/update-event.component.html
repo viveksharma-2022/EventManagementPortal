@@ -1,0 +1,45 @@
+<div class="container">
+  <h2 class="h2tag">Update Event</h2>
+  <form #form="ngForm" (ngSubmit)="updateEvent()" style="margin-top: 50px">
+      <div class="form-group">
+          <label class="space" for=""><h5>EventId</h5></label>
+          <input class="form-control" type="text" [(ngModel)]="event.eventId" name="eventId" readonly>
+      </div>
+      <div class="form-group">
+          <label class="space" for=""><h5>Event Title</h5></label>
+          <input class="form-control" onkeydown="return /[a-zA-Z ]/i.test(event.key)" required type="text" [(ngModel)]="event.eventName" name="title" maxlength="50" #eventName="ngModel">
+          <div *ngIf="eventName.invalid && (eventName.dirty || eventName.touched)"
+          class="text-danger">
+
+  <div class="text-danger" *ngIf="eventName.errors?.['required']">
+    Event title is required.
+  </div>
+
+</div>
+      </div>
+      <div class="form-group">
+          <label class="space" for=""><h5>Description</h5></label>
+          <input class="form-control" onkeydown="return /[a-zA-Z ]/i.test(event.key)" required type="text" [(ngModel)]="event.description" name="description" #description="ngModel" maxlength="150">
+          <div *ngIf="description.invalid && (eventName.dirty || description.touched)"
+          class="text-danger">
+
+  <div class="text-danger" *ngIf="description.errors?.['required']">
+    Description is required.
+  </div>
+
+</div>
+      </div>
+      <div class="form-group">
+          <label class="space" for=""><h5>Event Date</h5></label>
+          <input class="form-control" type="datetime-local" min="2022-09-21 00:00:00" max="2022-10-05 00:00:00" [(ngModel)]="event.eventDate" name="eventDate">
+      </div>
+      <div class="form-group">
+        <label class="space" for=""><h5>UserEmail</h5></label>
+        <input class="form-control" readonly type="text" [(ngModel)]="event.userEmail" name="userEmail">
+    </div>
+      <div class="form-group" style="margin-top: 10px">
+          <button type="submit" [disabled]="!form.valid" class="btn btn-success">Update Event</button>
+      </div>
+
+  </form>
+</div>

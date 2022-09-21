@@ -1,0 +1,109 @@
+.container{
+  padding:3em;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1{
+  text-align: center;
+}
+
+.cards-container{
+  display: flex;
+  width: 100%;
+  padding-top: 5em;
+}
+
+.cards-form{
+  width: 50%;
+  padding: 2em;
+}
+
+.cards-grid{
+  width: 50%;
+  padding: 2em;
+}
+
+form .form-group{
+  margin-bottom: 1em;
+}
+
+form label{
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+form input[type="text"], form input[type="password"], form input[type="number"]
+{
+  width: 100%;
+  padding: 0.5em 0.3em;
+  margin-bottom: 0.5em;
+  font-size: 1.2em;
+}
+
+.form-group-inline{
+  display: flex;
+  flex-direction:row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.form-group-inline div{
+width: 30%;
+}
+
+form button{
+  background-color: black;
+  padding: 0.5em 1em;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+.image-card {
+  width: 200px;
+  height: 260px;
+  padding: 15px;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform .5s;
+}
+.marb10{
+  margin-bottom: 10px;
+}
+.colours{
+color:#0d6efd ;
+
+}
+.widt{
+width:fit-content;
+}
+.pad25{
+padding-left: 25px;
+}
+.mart30{
+  margin-top: 30px;
+}
+.aligncenter{
+  text-align: center;
+
+}
+.preview-image {
+  max-height: 300px;
+  max-width: 300px;
+}
+
+td{
+  border-top:0;
+  border-bottom:1px color-row-border;
+  width: 20%;
+}
+
+.image-card:hover {
+  transform: scale(1.5);
+}

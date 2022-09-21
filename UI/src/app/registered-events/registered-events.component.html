@@ -1,0 +1,56 @@
+
+<div class="container">
+  <h3 class="mrt50">Registered Events History</h3>
+  <div class="cards-container">
+      <div class="cards-form">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                  <label for=""><h5><b>Email&nbsp;&nbsp;</b></h5></label>
+                  <input type="email" name="userName" formControlName="userName" [(ngModel)]="register.memberEmailId"><br/>
+                  <span class="text-danger" *ngIf="(loginData.userName.touched || submitted) && loginData.userName.errors?.required">
+                    EmailId is required
+                 </span>
+                 <span class="text-danger" *ngIf="loginData.userName.touched && loginData.userName.errors?.email">
+                    Enter a valid email address!
+                 </span>
+
+              </div>
+              <div class="form-group">
+                  <button class="btn btn-primary mart20">Get Registered Events Details</button>
+              </div>
+
+          </form>
+      </div>
+  </div>
+</div>
+
+<div class="card-body mart30" *ngIf='showHistory'>
+  <div class="table-responsive">
+      <table class="table" *ngIf="history.length">
+          <thead class="table-dark">
+              <tr>
+                  <th>EventId</th>
+                  <th>Title</th>
+                  <th>Member Email</th>
+                 <th>Description</th>
+                  <th>Event Date</th>
+                  <th>Event Time</th>
+
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of history">
+                  <td>{{item.eventId}}</td>
+                  <td>{{item.eventName}}</td>
+                  <td>{{item.memberEmailId}}</td>
+                  <td>{{item.description}}</td>
+                  <td>{{item.eventDate|date}}</td>
+                  <td>{{item.eventDate| date:"hh:mm a"}}</td>
+
+
+              </tr>
+          </tbody>
+        </table>
+        <h3 *ngIf="!history.length">You have not registered for any event!</h3>
+  </div>
+</div>
